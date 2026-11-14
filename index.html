@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#071511">
+    <meta name="description" content="Explore personagens do universo Rick and Morty em um catálogo interdimensional interativo.">
+    <title>Rick and Morty | Multiverso</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <!-- Naves decorativas; as estrelas aparecem apenas na abertura. -->
+    <div class="viagem-espacial" aria-hidden="true">
+        <div class="nave nave-fugitiva" id="nave">
+            <div class="cupula"><img class="piloto" id="piloto-fugitivo" alt=""></div>
+            <div class="disco"><span></span><span></span><span></span></div>
+            <div class="propulsor"></div>
+        </div>
+        <div class="nave nave-perseguidora" id="nave-perseguidora">
+            <div class="cupula"><img class="piloto" id="piloto-perseguidor" alt=""></div>
+            <div class="disco"><span></span><span></span><span></span></div>
+            <div class="propulsor"></div>
+            <span class="feixe-energia feixe-um"></span>
+            <span class="feixe-energia feixe-dois"></span>
+            <span class="feixe-energia feixe-tres"></span>
+        </div>
+        <!-- Clarão de um disparo que passa perto da nave do Morty -->
+        <div class="clarão-rasante" id="clarao-rasante"></div>
+        <!-- Portal final: recebe as duas naves no fim do catálogo -->
+        <div class="portal-fuga" id="portal-fuga">
+            <div class="portal-fuga-interior"></div>
+        </div>
+    </div>
+
+    <header class="hero" id="inicio">
+        <nav class="hero-nav" aria-label="Navegação principal">
+            <a href="#inicio" class="hero-logo">R&M <span>UNIVERSE</span></a>
+            <a href="#catalogo" class="hero-menu" data-transicao>Personagens ↗</a>
+        </nav>
+        <div class="hero-layout">
+            <div class="hero-info">
+                <p class="hero-tag">● SINAL INTERDIMENSIONAL ATIVO</p>
+                <h1>O multiverso<br>está <span>aberto.</span></h1>
+                <p class="hero-descricao">Viaje entre dimensões, descubra personagens e explore o universo de Rick and Morty.</p>
+                <a href="#catalogo" class="hero-cta" data-transicao>Entrar no multiverso ↗</a>
+                <p class="hero-scroll">↓ Role para explorar</p>
+            </div>
+            <div class="portal-cena" aria-hidden="true">
+                <div class="portal-anel"></div>
+                <div class="portal"></div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="catalogo" class="catalogo-cinematico" aria-labelledby="titulo-catalogo">
+            <div class="catalogo-intro">
+                <p class="catalogo-tag">ARQUIVO INTERDIMENSIONAL</p>
+                <h2 id="titulo-catalogo">Explore o multiverso</h2>
+                <p>Cada dimensão guarda uma história. Role para descobrir seus personagens.</p>
+            </div>
+            <!-- O portal percorre a seção de acordo com a rolagem. -->
+            <div class="portal-viajante" id="portal-viajante" aria-hidden="true">
+                <div class="portal-central"><div class="portal-energia"></div></div>
+            </div>
+            <p id="mensagem-catalogo" class="mensagem-catalogo" role="status">Abrindo arquivo de personagens...</p>
+            <!-- Os cards são inseridos exclusivamente pelo JavaScript. -->
+            <div id="personagens"></div>
+        </section>
+    </main>
+
+    <footer>Projeto acadêmico • Desenvolvimento Web Front-End • Dados: Rick and Morty API</footer>
+
+    <!-- Transição entre abertura e catálogo. -->
+    <div class="transicao-dimensional" id="transicao-dimensional" aria-hidden="true">
+        <div class="transicao-onda"></div>
+    </div>
+
+    <!-- Janela de informações do personagem. -->
+    <div class="modal" id="modal-personagem" aria-hidden="true">
+        <div class="modal-fundo" data-fechar></div>
+        <section class="modal-painel" role="dialog" aria-modal="true" aria-labelledby="modal-nome" tabindex="-1">
+            <button class="modal-fechar" id="fechar-modal" type="button" aria-label="Fechar detalhes">×</button>
+            <div class="modal-foto"><img id="modal-imagem" alt=""></div>
+            <div class="modal-informacoes">
+                <p class="modal-tag">REGISTRO INTERDIMENSIONAL</p>
+                <h2 id="modal-nome"></h2>
+                <p id="modal-resumo" class="modal-resumo"></p>
+                <dl id="modal-dados" class="modal-dados"></dl>
+                <p class="modal-fonte">Resumo gerado a partir dos campos da API, sem biografia inventada.</p>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
